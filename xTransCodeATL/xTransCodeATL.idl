@@ -1,0 +1,98 @@
+// xTransCodeATL.idl : xTransCodeATL的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(xTransCodeATL.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+typedef enum
+{
+	keNsWrapperFileTypeIDL_Invalid = -1,
+	keNsWrapperFileTypeIDL_MXF_DNxHR,
+	keNsWrapperFileTypeIDL_MXF_XAVC_MC,
+	keNsWrapperFileTypeIDL_MOV,
+	keNsWrapperFileTypeILD_Last
+}ENsWrapperFileTypeIDL;
+
+[
+	object,
+	uuid(221C6680-050B-4B2A-A3DF-145FE1F9BD4E),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface INxTransCode : IDispatch{
+	
+	[id(1)] HRESULT TransCode_Begin
+		(
+			[in] BSTR in_bstrFile
+			);
+	
+	[id(2)] HRESULT TransElement_Begin();
+	
+	[id(3)] HRESULT TransElement_AddVideoFile
+		(
+			[in] BSTR in_bstrFile,
+			[in] unsigned long in_ulIn,
+			[in] unsigned long in_ulOut,
+			[in] BSTR in_bstrCam
+			);
+	[id(4)] HRESULT TransElement_AddAudioFile
+		(
+			[in] BSTR in_bstrFile,
+			[in] unsigned long in_ulIn,
+			[in] unsigned long in_ulOut
+			);
+
+	[id(5)] HRESULT TransElement_End
+		(
+			[in] BOOL bUseFFmpeg
+			);
+	[id(6)] HRESULT TransCode_End();
+
+	[id(7)] HRESULT TransCode_SetWrapperFileType([in]ENsWrapperFileTypeIDL in_eWrapperFileTypeIDL);
+	
+	[id(8)] HRESULT TransElement_GetCurrentPositionInFrames
+		(
+			[out]ULONGLONG* out_iCurrentFramePosition
+			);
+
+	//in_bStatus:True=>STOP False=>Continue
+	[id(9)] HRESULT TransElement_SetFramesReaderStatus
+		(
+			[in]BOOL in_bStatus
+			);
+
+	[id(10)] HRESULT TransElement_SetMixSchedule
+		(
+			[in] double in_ulMixStart,
+			[in] double in_ulMixEnd
+			);
+};
+[
+	uuid(A9706DE5-4949-4192-89E9-10BB14C72C48),
+	version(1.0),
+]
+library xTransCodeATLLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(7E8B5055-A38D-40DC-B0E8-34226D14E1E6)		
+	]
+	dispinterface _INxTransCodeEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(E0A5A2E3-942B-41C4-A5EE-415CA76557B6)		
+	]
+	coclass NxTransCode
+	{
+		[default] interface INxTransCode;
+		[default, source] dispinterface _INxTransCodeEvents;
+	};
+};
+

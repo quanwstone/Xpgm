@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {E0A5A2E3-942B-41C4-A5EE-415CA76557B6} = s 'NxTransCode Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{A9706DE5-4949-4192-89E9-10BB14C72C48}'
+			Version = s '1.0'
+		}
+	}
+}
