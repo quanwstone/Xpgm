@@ -1,0 +1,168 @@
+﻿生成启动时间为 2017/11/1 14:08:41。
+     1>项目“D:\quanwei\工程\xPGM_915\xPGM\xTransCodeATL\xTransCodeATL.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>Midl:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\midl.exe /D _DEBUG /W1 /nologo /char signed /env x64 /Oicf /h "xTransCodeATL_i.h" /iid "xTransCodeATL_i.c" /proxy "xTransCodeATL_p.c" /tlb "Debug64\xTransCodeATL.tlb" /robust xTransCodeATL.idl 
+         64 bit Processing .\xTransCodeATL.idl
+         xTransCodeATL.idl
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oaidl.idl
+         oaidl.idl
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\objidl.idl
+         objidl.idl
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\unknwn.idl
+         unknwn.idl
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wtypes.idl
+         wtypes.idl
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wtypesbase.idl
+         wtypesbase.idl
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\basetsd.h
+         basetsd.h
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\guiddef.h
+         guiddef.h
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\ocidl.idl
+         ocidl.idl
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oleidl.idl
+         oleidl.idl
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\servprov.idl
+         servprov.idl
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\urlmon.idl
+         urlmon.idl
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\msxml.idl
+         msxml.idl
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oaidl.acf
+         oaidl.acf
+         64 bit Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\ocidl.acf
+         ocidl.acf
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I..\Inc /ZI /nologo /W3 /WX- /sdl /Od /D _WINDOWS /D _DEBUG /D _USRDLL /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"Debug64\xTransCodeATL.pch" /Fo"Debug64\\" /Fd"Debug64\vc140.pdb" /Gd /TP /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I..\Inc /ZI /nologo /W3 /WX- /sdl /Od /D _WINDOWS /D _DEBUG /D _USRDLL /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug64\xTransCodeATL.pch" /Fo"Debug64\\" /Fd"Debug64\vc140.pdb" /Gd /TP /errorReport:prompt CNxTransCode.cpp xTransCodeATL.cpp
+         xTransCodeATL.cpp
+         CNxTransCode.cpp
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnssignalqueue.h(2): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnssignalqueue.h(3): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnssignalqueue.h(4): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnssignalqueue.h(85): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxlivewindownode.h(18): warning C4275: 非 dll 接口 class“CNxBaseNode”用作 dll 接口 class“CNxLiveWindowNode”的基
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxbasenode.h(80): note: 参见“CNxBaseNode”的声明
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxlivewindownode.h(17): note: 参见“CNxLiveWindowNode”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxlivewindownode.h(35): warning C4251: “CNxLiveWindowNode::m_sPoolSurfaceDescription”: struct“SNsdPoolSurfaceDescription”需要有 dll 接口由 class“CNxLiveWindowNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1244): note: 参见“SNsdPoolSurfaceDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxcommonfilereadernode.h(23): warning C4275: 非 dll 接口 class“CNxBaseNode”用作 dll 接口 class“CNxCommonFileReaderNode”的基
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxbasenode.h(80): note: 参见“CNxBaseNode”的声明
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxcommonfilereadernode.h(22): note: 参见“CNxCommonFileReaderNode”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxcommonfilereadernode.h(83): warning C4251: “CNxCommonFileReaderNode::m_sPoolSurfaceDescription”: struct“SNsdPoolSurfaceDescription”需要有 dll 接口由 class“CNxCommonFileReaderNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1244): note: 参见“SNsdPoolSurfaceDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxcommonfilereadernode.h(84): warning C4251: “CNxCommonFileReaderNode::m_sPoolSampleDescription”: struct“SNsdPoolSampleDescription”需要有 dll 接口由 class“CNxCommonFileReaderNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1374): note: 参见“SNsdPoolSampleDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxcommonfilereadernode.h(99): warning C4251: “CNxCommonFileReaderNode::m_oAttachedObjectAllocator”: class“CNsdPoolElementAllocator<CNsTransationParameter>”需要有 dll 接口由 class“CNxCommonFileReaderNode”的客户端使用
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxcommonfilereadernode.h(100): warning C4251: “CNxCommonFileReaderNode::m_oPoolManagerAttachedObject”: class“CNsPoolManager”需要有 dll 接口由 class“CNxCommonFileReaderNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\nspoolmanagerapi.h(84): note: 参见“CNsPoolManager”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxcommonfilereadernode.h(104): warning C4251: “CNxCommonFileReaderNode::m_vecFileCache”: class“std::vector<SNxFileCache *,std::allocator<_Ty>>”需要有 dll 接口由 class“CNxCommonFileReaderNode”的客户端使用
+                 with
+                 [
+                     _Ty=SNxFileCache *
+                 ]
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxcommonfilereadernode.h(107): warning C4251: “CNxCommonFileReaderNode::m_mapDecodeTask”: class“std::map<unsigned long,CNxAVCDecodeTask *,std::less<unsigned long>,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“CNxCommonFileReaderNode”的客户端使用
+                 with
+                 [
+                     _Kty=unsigned long,
+                     _Ty=CNxAVCDecodeTask *
+                 ]
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxcommonfilereadernode.h(116): warning C4251: “CNxCommonFileReaderNode::m_mapAudioFirstSamplePosition”: class“std::map<int,uint64_t,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“CNxCommonFileReaderNode”的客户端使用
+                 with
+                 [
+                     _Kty=int,
+                     _Ty=uint64_t
+                 ]
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxwriternode.h(14): warning C4275: 非 dll 接口 class“CNxBaseNode”用作 dll 接口 class“CNxWriterNode”的基
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxbasenode.h(80): note: 参见“CNxBaseNode”的声明
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxwriternode.h(13): note: 参见“CNxWriterNode”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxwriternode.h(38): warning C4251: “CNxWriterNode::m_sPoolSurfaceDescription”: struct“SNsdPoolSurfaceDescription”需要有 dll 接口由 class“CNxWriterNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1244): note: 参见“SNsdPoolSurfaceDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxwriternode.h(39): warning C4251: “CNxWriterNode::m_sPoolSampleDescription”: struct“SNsdPoolSampleDescription”需要有 dll 接口由 class“CNxWriterNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1374): note: 参见“SNsdPoolSampleDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxwriternode.h(43): warning C4251: “CNxWriterNode::m_pJAVClipWriter”: class“TNsSmartPtr<INsdAVClipWriter>”需要有 dll 接口由 class“CNxWriterNode”的客户端使用
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxdirectsoundoutputnode.h(15): warning C4275: 非 dll 接口 class“CNxBaseNode”用作 dll 接口 class“CNxDirectSoundOutputNode”的基
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxbasenode.h(80): note: 参见“CNxBaseNode”的声明
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxdirectsoundoutputnode.h(14): note: 参见“CNxDirectSoundOutputNode”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxdirectsoundoutputnode.h(33): warning C4251: “CNxDirectSoundOutputNode::m_sPoolSurfaceDescription”: struct“SNsdPoolSurfaceDescription”需要有 dll 接口由 class“CNxDirectSoundOutputNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1244): note: 参见“SNsdPoolSurfaceDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxdirectsoundoutputnode.h(34): warning C4251: “CNxDirectSoundOutputNode::m_sPoolSampleDescription”: struct“SNsdPoolSampleDescription”需要有 dll 接口由 class“CNxDirectSoundOutputNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1374): note: 参见“SNsdPoolSampleDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxdirectsoundoutputnode.h(38): warning C4251: “CNxDirectSoundOutputNode::m_pJOutputDeviceControl”: class“TNsSmartPtr<INsdOutputDeviceControl>”需要有 dll 接口由 class“CNxDirectSoundOutputNode”的客户端使用
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxdirectsoundoutputnode.h(39): warning C4251: “CNxDirectSoundOutputNode::m_pJReferenceClock”: class“TNsSmartPtr<IReferenceClock>”需要有 dll 接口由 class“CNxDirectSoundOutputNode”的客户端使用
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxmuxernode.h(15): warning C4275: 非 dll 接口 class“CNxBaseNode”用作 dll 接口 class“CNxMuxerNode”的基
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxbasenode.h(80): note: 参见“CNxBaseNode”的声明
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxmuxernode.h(14): note: 参见“CNxMuxerNode”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxmuxernode.h(38): warning C4251: “CNxMuxerNode::m_sPoolSurfaceDescription”: struct“SNsdPoolSurfaceDescription”需要有 dll 接口由 class“CNxMuxerNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1244): note: 参见“SNsdPoolSurfaceDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxmuxernode.h(39): warning C4251: “CNxMuxerNode::m_sPoolSampleDescription”: struct“SNsdPoolSampleDescription”需要有 dll 接口由 class“CNxMuxerNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1374): note: 参见“SNsdPoolSampleDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxmuxernode.h(42): warning C4251: “CNxMuxerNode::m_oAttachedAudioSamplesBufferAllocator”: class“CNsdPoolElementAllocator<CNsdAttachedAudioSamples>”需要有 dll 接口由 class“CNxMuxerNode”的客户端使用
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxmuxernode.h(43): warning C4251: “CNxMuxerNode::m_oPoolManagerAttachedAudioSamplesBuffer”: class“CNsPoolManager”需要有 dll 接口由 class“CNxMuxerNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\nspoolmanagerapi.h(84): note: 参见“CNsPoolManager”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxcompositornode.h(15): warning C4275: 非 dll 接口 class“CNxBaseNode”用作 dll 接口 class“CNxCompositorNode”的基
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxbasenode.h(80): note: 参见“CNxBaseNode”的声明
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxcompositornode.h(14): note: 参见“CNxCompositorNode”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxcompositornode.h(33): warning C4251: “CNxCompositorNode::m_sPoolSurfaceDescription”: struct“SNsdPoolSurfaceDescription”需要有 dll 接口由 class“CNxCompositorNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1244): note: 参见“SNsdPoolSurfaceDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxcompositornode.h(34): warning C4251: “CNxCompositorNode::m_sPoolSampleDescription”: struct“SNsdPoolSampleDescription”需要有 dll 接口由 class“CNxCompositorNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1374): note: 参见“SNsdPoolSampleDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxm264xavccodecnode.h(14): warning C4275: 非 dll 接口 class“CNxBaseNode”用作 dll 接口 class“CNxM264XAVCCodecNode”的基
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxbasenode.h(80): note: 参见“CNxBaseNode”的声明
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxm264xavccodecnode.h(13): note: 参见“CNxM264XAVCCodecNode”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxm264xavccodecnode.h(34): warning C4251: “CNxM264XAVCCodecNode::m_sPoolSurfaceDescriptionOutput”: struct“SNsdPoolSurfaceDescription”需要有 dll 接口由 class“CNxM264XAVCCodecNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1244): note: 参见“SNsdPoolSurfaceDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxm264xavccodecnode.h(35): warning C4251: “CNxM264XAVCCodecNode::m_sPoolSampleDescriptionOutput”: struct“SNsdPoolSampleDescription”需要有 dll 接口由 class“CNxM264XAVCCodecNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1374): note: 参见“SNsdPoolSampleDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxavcencodemcnode.h(38): warning C4275: 非 dll 接口 class“CNxBaseNode”用作 dll 接口 class“CNxAVCEncodeMCNode”的基
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxbasenode.h(80): note: 参见“CNxBaseNode”的声明
+         d:\quanwei\工程\xpgm_915\xpgm\inc\cnxavcencodemcnode.h(37): note: 参见“CNxAVCEncodeMCNode”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxavcencodemcnode.h(60): warning C4251: “CNxAVCEncodeMCNode::m_sPoolSurfaceDescription”: struct“SNsdPoolSurfaceDescription”需要有 dll 接口由 class“CNxAVCEncodeMCNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1244): note: 参见“SNsdPoolSurfaceDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\cnxavcencodemcnode.h(61): warning C4251: “CNxAVCEncodeMCNode::m_sPoolSampleDescription”: struct“SNsdPoolSampleDescription”需要有 dll 接口由 class“CNxAVCEncodeMCNode”的客户端使用
+         d:\quanwei\工程\xpgm_915\xpgm\inc\xdef.h(1374): note: 参见“SNsdPoolSampleDescription”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\xtranscodeatl\cnxtranscode.cpp(130): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\xtranscodeatl\cnxtranscode.cpp(171): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\xtranscodeatl\cnxtranscode.cpp(248): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\xtranscodeatl\cnxtranscode.cpp(249): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\xtranscodeatl\cnxtranscode.cpp(445): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\xtranscodeatl\cnxtranscode.cpp(446): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\xtranscodeatl\cnxtranscode.cpp(508): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\xtranscodeatl\cnxtranscode.cpp(509): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\xtranscodeatl\cnxtranscode.cpp(524): warning C4800: “BOOL”: 将值强制为布尔值“true”或“false”(性能警告)
+         正在生成代码...
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I..\Inc /ZI /nologo /W3 /WX- /sdl /Od /D _WINDOWS /D _DEBUG /D _USRDLL /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug64\\" /Fd"Debug64\vc140.pdb" /Gd /TP /errorReport:prompt dllmain.cpp
+         dllmain.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I..\Inc /ZI /nologo /W3 /WX- /sdl /Od /D _WINDOWS /D _DEBUG /D _USRDLL /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug64\\" /Fd"Debug64\vc140.pdb" /Gd /TC /errorReport:prompt xdlldata.c xTransCodeATL_i.c
+         xTransCodeATL_i.c
+         xdlldata.c
+         正在生成代码...
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _DEBUG /l"0x0804" /IDebug64\ /nologo /fo"Debug64\xTransCodeATL.res" xTransCodeATL.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"Debug64\xTransCodeATL.dll" /INCREMENTAL /NOLOGO /LIBPATH:..\Lib\Debug64 /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win64" xAPI.lib xLogger.lib xTree.lib xUtility.lib xBaseCom.lib xCommonFileReaderNode.lib xWriterNode.lib xMuxerNode.lib xCompositorNode.lib xM264XAVCCodecNode.lib xAVCEncodeMCNode.lib /DEF:".\xTransCodeATL.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"Debug64\xTransCodeATL.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X64 /DLL Debug64\xTransCodeATL.res
+         Debug64\CNxTransCode.obj
+         Debug64\dllmain.obj
+         Debug64\stdafx.obj
+         Debug64\xdlldata.obj
+         Debug64\xTransCodeATL.obj
+         Debug64\xTransCodeATL_i.obj
+           正在创建库 Debug64\xTransCodeATL.lib 和对象 Debug64\xTransCodeATL.exp
+         xTransCodeATL.vcxproj -> D:\quanwei\工程\xPGM_915\xPGM\xTransCodeATL\Debug64\xTransCodeATL.dll
+       PostBuildEvent:
+         ..\BuildCustom\CustomBuildDLL Debug64
+         :VCEnd
+         系统找不到指定的路径。
+         .\Debug64\xTransCodeATL.dll
+         已复制         1 个文件。
+         .\Debug64\vc140.pdb
+         .\Debug64\xTransCodeATL.pdb
+         已复制         2 个文件。
+         .\Debug64\xTransCodeATL.lib
+         已复制         1 个文件。
+     1>已完成生成项目“D:\quanwei\工程\xPGM_915\xPGM\xTransCodeATL\xTransCodeATL.vcxproj”(Rebuild 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:18.85

@@ -39,7 +39,7 @@ typedef struct VideoInfo {
 }SNxVideoInfo;
 
 class ATL_NO_VTABLE CNxTransCode :
-	public CComObjectRootEx<CComSingleThreadModel>,
+	public CComObjectRootEx<CComMultiThreadModel>,//CComMultiThreadModel CComSingleThreadModel
 	public CComCoClass<CNxTransCode, &CLSID_NxTransCode>,
 	public IConnectionPointContainerImpl<CNxTransCode>,
 	public CProxy_INxTransCodeEvents<CNxTransCode>,
@@ -141,10 +141,14 @@ private:
 	bool         m_bSoftEncode;
 	
 	bool		 m_bUseFFmpeg;
+
+	char m_buf_guid[64];
 private:
 	HRESULT _init();
 
 	HRESULT _execute_transcode();
+
+	HRESULT	_get_guid();
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(NxTransCode), CNxTransCode)

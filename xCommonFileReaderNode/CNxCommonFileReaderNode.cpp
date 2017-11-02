@@ -88,7 +88,7 @@ CNxCommonFileReaderNode::CNxCommonFileReaderNode
 
 
 	m_poThreadOutput = NULL;
-	m_nThreadParalleCount = 8;
+	m_nThreadParalleCount = 1;
 
 	for (int i = 0; i < m_nThreadParalleCount; i++)
 	{
@@ -116,7 +116,7 @@ CNxCommonFileReaderNode::CNxCommonFileReaderNode
 	_cprintf("m_bUseFFMPEGReader = %d\n",m_bUseFFMPEGReader);
 	m_ui64VideoFrameSize = 1260032;
 	m_ui64AudioSampleSize = 1920;
-	
+	m_ui64CurrentReadedPosition = 0;
 }
 
 CNxCommonFileReaderNode::~CNxCommonFileReaderNode()
@@ -169,7 +169,12 @@ HRESULT CNxCommonFileReaderNode::SetFileName2(const wchar_t *in_pwszFileName, co
 		m_mapDecodeTask[i]->SetDrawCamInfo(m_bColorBar, m_szCamName);
 	}
 	//获取文件句柄
-	errno_t error = fopen_s(&m_pFile, m_szFileName, "rb");
+//	errno_t error = fopen_s(&m_pFile, m_szFileName, "rb");
+	m_pFile = _fsopen(m_szFileName, "rb", _SH_DENYNO);
+	if (m_pFile == NULL) {
+		hr = NS_E_FAIL;
+		NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L" CNxCommonFileReaderNode::SetFileName2 Fopen_s Failed FileName= ,%S", m_szFileName));
+	}
 	return hr;
 }
 
@@ -178,6 +183,7 @@ HRESULT CNxCommonFileReaderNode::SetReadTask(uint64_t in_ui64Start, uint64_t in_
 {
 	m_ui64Start = in_ui64Start;
 	m_ui64End = in_ui64End;
+	m_ui64CurrentReadedPosition = m_ui64Start;
 
 	m_bNewReadTask = true;
 
@@ -186,8 +192,6 @@ HRESULT CNxCommonFileReaderNode::SetReadTask(uint64_t in_ui64Start, uint64_t in_
 	SetEvent(m_hAddNewTaskEvent);
 
 	ResetEvent(m_hFinishedReadEvent);
-
-	m_ui64CurrentReadedPosition = m_ui64Start;
 
 	return NS_NOERROR;
 }
@@ -196,6 +200,7 @@ HRESULT CNxCommonFileReaderNode::SetTask(uint64_t in_ui64Start, uint64_t in_ui64
 {
 	m_ui64Start = in_ui64Start;
 	m_ui64End = in_ui64End;
+	m_ui64CurrentReadedPosition = m_ui64Start;
 
 	m_bNewReadTask = true;
 
@@ -204,8 +209,6 @@ HRESULT CNxCommonFileReaderNode::SetTask(uint64_t in_ui64Start, uint64_t in_ui64
 	SetEvent(m_hAddNewTaskEvent);
 	
 	ResetEvent(m_hFinishedReadEvent);
-
-	m_ui64CurrentReadedPosition = m_ui64Start;
 
 	return NS_NOERROR;
 }
@@ -601,7 +604,6 @@ HRESULT CNxCommonFileReaderNode::ThreadNodeSeekProcessLoop()
 		{
 			WaitPauseEvent();
 			DWORD dwWaitCode = WaitForSingleObject(m_hAddNewTaskEvent, INFINITE);
-
 			if (m_bNewReadTask)
 			{
 				m_bNewReadTask = false;
@@ -694,7 +696,6 @@ HRESULT CNxCommonFileReaderNode::ThreadNodeSeekProcessLoop()
 
 			bool bReadHit = false;
 
-
 			while (true) {
 	
 				WaitForSingleObject(m_HandleFrameStatus, INFINITE);
@@ -707,7 +708,7 @@ HRESULT CNxCommonFileReaderNode::ThreadNodeSeekProcessLoop()
 
 					if (m_bColorBar)
 					{
-						ui64PosAtFile = 525332;
+						ui64PosAtFile = m_ui64VideoFirstFramePosition;
 					}
 					//判断文件大小是否包含需要读取的数据帧,线程挂起
 					juge_flag = JudgeReadFrameInFile(ui64PosAtFile, 1260032);
@@ -779,15 +780,15 @@ HRESULT CNxCommonFileReaderNode::ThreadNodeSeekProcessLoop()
 
 					uint64_t ui64PosAtFile = m_mapAudioFirstSamplePosition[m_nAudioStreamIndex-1] + m_ui64CurrentReadedPosition*(1920 + 1276544);
 
-					//判断文件大小是否包含需要读取的数据帧,线程挂起
-					juge_flag = JudgeReadFrameInFile(ui64PosAtFile, 1920);
-					if (juge_flag == false) {//
-						break;
-					}
-
 					if (m_bColorBar)
 					{
 						ui64PosAtFile = m_mapAudioFirstSamplePosition[m_nAudioStreamIndex - 1];
+					}
+
+					////判断文件大小是否包含需要读取的数据帧,线程挂起
+					juge_flag = JudgeReadFrameInFile(ui64PosAtFile, 1920);
+					if (juge_flag == false) {//
+						break;
 					}
 
 					int nResult = _fseeki64(m_pFile, ui64PosAtFile, SEEK_SET);
@@ -1545,6 +1546,7 @@ HRESULT CNxCommonFileReaderNode::SetFramesPraseStatus(BOOL in_bStatus)
 	}
 	return hr;
 }
+
 unsigned int CNxCommonFileReaderNode::_outputhread(void* in_pThreadParameter)
 {
 	CNxCommonFileReaderNode *pThis = (CNxCommonFileReaderNode*)in_pThreadParameter;

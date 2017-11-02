@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 8.00.0603 */
-/* at Fri Oct 27 16:29:23 2017
+/* at Wed Nov 01 15:22:57 2017
  */
 /* Compiler settings for xTransCodeATL.idl:
     Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.00.0603 

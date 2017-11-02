@@ -17,6 +17,7 @@ CNxTransCode::CNxTransCode()
 	m_eENsWrapperFileTypeIDL = keNsWrapperFileTypeIDL_MXF_XAVC_MC;
 	m_bUseFFmpeg = true;
 	m_bSoftEncode = true;
+	memset(m_buf_guid,0,64);
 }
 
 
@@ -53,7 +54,7 @@ HRESULT CNxTransCode::TransCode_Begin(
 
 	if (m_pJResourceManagerCreator == NULL)
 	{
-
+		_get_guid();
 		HRESULT hr = CoCreateInstance(CLSID_NsdResourceManagerCreator,
 			NULL,
 			CLSCTX_INPROC,
@@ -113,6 +114,8 @@ HRESULT  CNxTransCode::TransElement_Begin()
 	HRESULT hr = NS_NOERROR;
 	m_wszvectorAudioFiles.clear();
 	m_wszvectorVideoInfos.clear();
+
+	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage,(L"TransElement_Begin # GUID::%S",m_buf_guid));
 	return hr;
 }
 
@@ -152,7 +155,7 @@ HRESULT  CNxTransCode::TransElement_AddVideoFile(
 
 	//ConvertFromWCHARToTCHAR(L"E:\\MCEContent\\20170616125930\\High\\节目01_20170616125930_3.MXF", m_szLogString, _MAX_PATH_R);
 
-	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L"TransElement_AddVideoFile [%d,%d),%S", in_ulIn, in_ulOut, m_szLogString));
+	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L"TransElement_AddVideoFile [%d,%d),%S,# GUID::%S", in_ulIn, in_ulOut, m_szLogString,m_buf_guid));
 	//hr = TransElement_AddAudioFile(in_bstrFile, in_ulIn, in_ulOut);
 
 	return hr;
@@ -193,7 +196,7 @@ HRESULT  CNxTransCode::TransElement_AddAudioFile(
 	//ConvertFromWCHARToTCHAR(L"E:\\MCEContent\\20170616125930\\High\\节目01_20170616125930_3.MXF", m_szLogString, _MAX_PATH_R);
 
 	//
-	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L"TransElement_AddAudioFile [%d,%d),%S", in_ulIn, in_ulOut, m_szLogString));
+	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L"TransElement_AddAudioFile [%d,%d),%S#GUID::%S", in_ulIn, in_ulOut, m_szLogString,m_buf_guid));
 	return hr;
 }
 HRESULT CNxTransCode::TransElement_SetMixSchedule(
@@ -205,7 +208,7 @@ HRESULT CNxTransCode::TransElement_SetMixSchedule(
 
 	m_aMixSchedule[0] = in_ulMixStart;
 	m_aMixSchedule[1] = in_ulMixEnd;
-
+	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L"TransElement_SetMixSchedule [%f,%f)#GUID::%S", in_ulMixStart, in_ulMixEnd,m_buf_guid));
 	return hr;
 }
 HRESULT CNxTransCode::TransElement_GetCurrentPositionInFrames(/*[out]*/ULONGLONG* out_iCurrentFramePosition)
@@ -229,12 +232,13 @@ HRESULT CNxTransCode::TransElement_SetFramesReaderStatus(/*[in]*/BOOL in_bStatus
 	if (m_ppVideoReaderNode == NULL || m_ppVideoReaderNode[0] == NULL) {
 
 		NSD_SAFE_REPORT_ERROR(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, NS_E_FAIL,
-			"CNxTransCode::TransCodeElement_GetCurrentFramePosition,m_ppVideoReaderNode is NULL!", true);
+			(L"CNxTransCode::TransElement_SetFramesReaderStatus,m_ppVideoReaderNode is NULL!#GUID::%S",m_buf_guid), true);
 		return NS_E_FAIL;
 	}
 	m_ppVideoReaderNode[0]->SetFramesPraseStatus(in_bStatus);
 	m_ppVideoReaderNode[1]->SetFramesPraseStatus(in_bStatus);
 	
+	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L"TransElement_SetFramesReaderStatus: %d#GUID::%S", in_bStatus,m_buf_guid));
 	return hr;
 }
 HRESULT  CNxTransCode::_execute_transcode()
@@ -257,7 +261,10 @@ HRESULT  CNxTransCode::_execute_transcode()
 		m_pTopology->UnLinkAll();
 		m_pTopology->RemoveAll();
 
-		m_ppVideoReaderNode[0]->SetFileName2(m_wszvectorVideoInfos[0].wstrVideoFile.c_str(), m_wszvectorVideoInfos[0].wstrCam.c_str());
+		hr = m_ppVideoReaderNode[0]->SetFileName2(m_wszvectorVideoInfos[0].wstrVideoFile.c_str(), m_wszvectorVideoInfos[0].wstrCam.c_str());
+		NSD_SAFE_REPORT_ERROR(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, hr,
+			(L"CNxTransCode::_execute_transcode,m_ppVideoReaderNode[0] SetFileName2 Failed!#GUID::%S",m_buf_guid), true);
+
 		if (bUseCodec)
 		{
 			m_ppVideoReaderNode[0]->SetOutputFormat(keNsSurfaceFormatYUY2);
@@ -305,11 +312,8 @@ HRESULT  CNxTransCode::_execute_transcode()
 		m_pTopology->Run();
 
 		//Set Read Task.
-		hr = m_ppVideoReaderNode[0]->SetReadTask(m_aVideoIn[0], m_aVideoOut[0]);
-		NSD_SAFE_REPORT_ERROR(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, hr,
-			"CNxTransCode::_execute_transcode,Video SetReadTask Failed!", true);
-
-
+		m_ppVideoReaderNode[0]->SetReadTask(m_aVideoIn[0], m_aVideoOut[0]);
+		
 		hr = m_pWriterNode->SetTask(m_aVideoIn[0], m_aVideoOut[0]);
 		NSD_SAFE_REPORT_ERROR(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, hr,
 			"CNxTransCode::_execute_transcode,m_pWriterNode SetTask Failed!", true);
@@ -325,10 +329,8 @@ HRESULT  CNxTransCode::_execute_transcode()
 		for (int i = 0; i < nAudios; i++)
 		{
 			m_ppAudioReaderNode[i]->SetAudioStreamIndex(i + 1);
-
 			m_ppAudioReaderNode[i]->SetReadTask(m_aAudioIn[i], m_aAudioOut[i]);
-			NSD_SAFE_REPORT_ERROR(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, hr,
-				"CNxTransCode::_execute_transcode,Audio SetReadTask Failed!", true);
+	
 		}
 
 	}
@@ -339,10 +341,16 @@ HRESULT  CNxTransCode::_execute_transcode()
 		m_pTopology->UnLinkAll();
 		m_pTopology->RemoveAll();
 
-		m_ppVideoReaderNode[0]->SetFileName2(m_wszvectorVideoInfos[0].wstrVideoFile.c_str(), m_wszvectorVideoInfos[0].wstrCam.c_str());
+		hr = m_ppVideoReaderNode[0]->SetFileName2(m_wszvectorVideoInfos[0].wstrVideoFile.c_str(), m_wszvectorVideoInfos[0].wstrCam.c_str());
+		NSD_SAFE_REPORT_ERROR(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, hr,
+			(L"CNxTransCode::_execute_transcode,m_ppVideoReaderNode[0] SetFileName2 Failed!#GUID::%S",m_buf_guid), true);
+
 		m_ppVideoReaderNode[0]->SetOutputFormat(keNsSurfaceFormatYUY2);
 
-		m_ppVideoReaderNode[1]->SetFileName2(m_wszvectorVideoInfos[1].wstrVideoFile.c_str(), m_wszvectorVideoInfos[1].wstrCam.c_str());
+		hr = m_ppVideoReaderNode[1]->SetFileName2(m_wszvectorVideoInfos[1].wstrVideoFile.c_str(), m_wszvectorVideoInfos[1].wstrCam.c_str());
+		NSD_SAFE_REPORT_ERROR(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, hr,
+			(L"CNxTransCode::_execute_transcode,m_ppVideoReaderNode[1] SetFileName2 Failed!#GUID::%S",m_buf_guid), true);
+
 		m_ppVideoReaderNode[1]->SetOutputFormat(keNsSurfaceFormatYUY2);
 
 
@@ -365,7 +373,7 @@ HRESULT  CNxTransCode::_execute_transcode()
 
 		hr = m_pCompositorNode->SetMixSchedule(m_aMixSchedule[0], m_aMixSchedule[1]);
 		NSD_SAFE_REPORT_ERROR(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, hr,
-			"CNxTransCode::_execute_transcode,SetMixOffset Failed!", true);
+			(L"CNxTransCode::_execute_transcode,SetMixOffset Failed!#GUID::%S",m_buf_guid), true);
 
 		m_pEncodeNode->ConnectToChildNode(0, keNsChildUsageDontCare, m_pCompositorNode);
 		m_pMuxerNode->ConnectToChildNode(0, keNsChildUsageDontCare, m_pEncodeNode);
@@ -381,14 +389,8 @@ HRESULT  CNxTransCode::_execute_transcode()
 		m_pTopology->Run();
 		//Set Read Task.
 		hr = m_ppVideoReaderNode[0]->SetReadTask(m_aVideoIn[0], m_aVideoOut[0]);
-		NSD_SAFE_REPORT_ERROR(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, hr,
-			"CNxTransCode::_execute_transcode,Video A SetReadTask Failed!", true);
-
 		hr = m_ppVideoReaderNode[1]->SetReadTask(m_aVideoIn[1], m_aVideoOut[1]);
-		NSD_SAFE_REPORT_ERROR(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, hr,
-			"CNxTransCode::_execute_transcode,Video B SetReadTask Failed!", true);
-
-
+		//Set Writer Task.
 		hr = m_pWriterNode->SetTask(m_aVideoIn[0], m_aVideoOut[0]);
 		NSD_SAFE_REPORT_ERROR(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, hr,
 			"CNxTransCode::_execute_transcode,m_pWriterNode SetTask Failed!", true);
@@ -404,21 +406,46 @@ HRESULT  CNxTransCode::_execute_transcode()
 			m_ppAudioReaderNode[i]->SetAudioStreamIndex(i + 1);
 
 			m_ppAudioReaderNode[i]->SetReadTask(m_aAudioIn[i], m_aAudioOut[i]);
-			NSD_SAFE_REPORT_ERROR(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, hr,
-				"CNxTransCode::_execute_transcode,Audio SetReadTask Failed!", true);
+			
 		}
 	}
 
 	return hr;
 }
 
+HRESULT CNxTransCode::_get_guid()
+{
+	HRESULT hr = NS_NOERROR;
 
+	GUID guid;
+	hr = CoCreateGuid(&guid);
+	if (hr != S_OK)
+	{
+		NSD_SAFE_REPORT_ERROR(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, NS_E_FAIL,
+			"CNxTransCode::_get_guid,CoCreateGuid Failed!", true);
+		return NS_E_FAIL;
+	}
+	
+	_stprintf_s(
+		m_buf_guid, 
+		"{%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X}",
+		guid.Data1, guid.Data2, guid.Data3,
+		guid.Data4[0], guid.Data4[1],
+		guid.Data4[2], guid.Data4[3],
+		guid.Data4[4], guid.Data4[5],
+		guid.Data4[6], guid.Data4[7]);
+
+	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L"CNxTransCode#GUID::,%S", m_buf_guid));
+	return hr;
+}
 HRESULT  CNxTransCode::_init()
 {
 	HRESULT hr = NS_NOERROR;
 
 	int nAudios = m_wszvectorAudioFiles.size();
 	int nVideos = m_wszvectorVideoInfos.size();
+	
+	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L"CNxTransCode::Init#GUID::%S", m_buf_guid));
 
 	m_pTopology = new CNxTopology(L"Topology");
 	m_ppVideoReaderNode = new CNxCommonFileReaderNode*[2];
@@ -481,16 +508,18 @@ HRESULT  CNxTransCode::TransElement_End(BOOL bUseFFmpeg)
 	int nAudios = m_wszvectorAudioFiles.size();
 	int nVideos = m_wszvectorVideoInfos.size();
 
+	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L"TransElement End#GUID::%S.",m_buf_guid));
+
 	if (nVideos > 2 || nVideos < 0)
 	{
 		NSD_SAFE_REPORT_ERROR_RETURN(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral,NS_E_FAIL,
-			"CNxTransCode::TransElement_End, Create nVideos != 1 Failed!", true);
+			(L"CNxTransCode::TransElement_End, Create nVideos != 1 Failed!#GUID::%S",m_buf_guid), true);
 	}
 
 	if (nAudios == 0)
 	{
 		NSD_SAFE_REPORT_ERROR_RETURN(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, NS_E_FAIL,
-			"CNxTransCode::TransElement_End, Create nAudios == 0 Failed!", true);
+			(L"CNxTransCode::TransElement_End, Create nAudios == 0 Failed!#GUID::%S",m_buf_guid), true);
 	}
 	m_bUseFFmpeg = bUseFFmpeg;
 	if (!m_bInitialize)
@@ -520,7 +549,7 @@ HRESULT  CNxTransCode::TransElement_End(BOOL bUseFFmpeg)
 
 	m_pWriterNode->WaitWriteTaskFinished();
 
-	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L"TransElement Success."));
+	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L"TransElement Success.#GUID::%S",m_buf_guid));
 
 
 	return hr;
@@ -538,7 +567,7 @@ HRESULT  CNxTransCode::TransCode_End()
 			"CNxTransCode::TransCode_End, FinishedWrite Failed!", true);
 	}
 
-	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L"TransCode Complete."));
+	NS_LOG_WSTRING_FORMAT(keLogPkgxTransCodeATL, keLogPkgxTransCodeATLFuncGeneral, keMessage, (L"TransCode Complete.#GUID::%S",m_buf_guid));
 	return hr;
 }
 

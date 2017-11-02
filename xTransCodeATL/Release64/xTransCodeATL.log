@@ -1,0 +1,28 @@
+﻿生成启动时间为 2017/11/1 15:24:23。
+     1>项目“D:\quanwei\工程\xPGM_915\xPGM\xTransCodeATL\xTransCodeATL.vcxproj”在节点 9 上(Build 个目标)。
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"Release64\xTransCodeATL.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\Lib\Release64 /LIBPATH:"C:\Program Files (x86)\Visual Leak Detector\lib\Win64" xAPI.lib xLogger.lib xTree.lib xUtility.lib xBaseCom.lib xCommonFileReaderNode.lib xWriterNode.lib xMuxerNode.lib xCompositorNode.lib xM264XAVCCodecNode.lib xAVCEncodeMCNode.lib /DEF:".\xTransCodeATL.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"Release64\xTransCodeATL.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X64 /DLL Release64\xTransCodeATL.res
+         Release64\CNxTransCode.obj
+         Release64\dllmain.obj
+         Release64\stdafx.obj
+         Release64\xdlldata.obj
+         Release64\xTransCodeATL.obj
+         Release64\xTransCodeATL_i.obj
+           正在创建库 Release64\xTransCodeATL.lib 和对象 Release64\xTransCodeATL.exp
+         xTransCodeATL.vcxproj -> D:\quanwei\工程\xPGM_915\xPGM\xTransCodeATL\Release64\xTransCodeATL.dll
+       PostBuildEvent:
+         ..\BuildCustom\CustomBuildDLL Release64
+         :VCEnd
+         系统找不到指定的路径。
+         .\Release64\xTransCodeATL.dll
+         已复制         1 个文件。
+         .\Release64\vc140.pdb
+         .\Release64\xTransCodeATL.pdb
+         已复制         2 个文件。
+         .\Release64\xTransCodeATL.lib
+         已复制         1 个文件。
+     1>已完成生成项目“D:\quanwei\工程\xPGM_915\xPGM\xTransCodeATL\xTransCodeATL.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:06.60

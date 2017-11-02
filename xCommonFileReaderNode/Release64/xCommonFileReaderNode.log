@@ -1,0 +1,90 @@
+﻿生成启动时间为 2017/11/1 15:23:19。
+     1>项目“D:\quanwei\工程\xPGM_915\xPGM\xCommonFileReaderNode\xCommonFileReaderNode.vcxproj”在节点 23 上(Rebuild 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I.\inc /I..\inc /I"..\3rdparty\ffmpeg-20170425-b4330a0-win64-dev\include" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D NDEBUG /D _WINDOWS /D _USRDLL /D XCOMMONFILEREADERNODE_EXPORTS /D _WINDLL /D _MBCS /D _AFXDLL /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"Release64\xCommonFileReaderNode.pch" /Fo"Release64\\" /Fd"Release64\vc140.pdb" /Gd /TP /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(38): warning C4996: 'MBCS_Support_Deprecated_In_MFC': MBCS support in MFC is deprecated and may be removed in a future version of MFC.
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(33): note: 参见“MBCS_Support_Deprecated_In_MFC”的声明
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I.\inc /I..\inc /I"..\3rdparty\ffmpeg-20170425-b4330a0-win64-dev\include" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D NDEBUG /D _WINDOWS /D _USRDLL /D XCOMMONFILEREADERNODE_EXPORTS /D _WINDLL /D _MBCS /D _AFXDLL /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release64\\" /Fd"Release64\vc140.pdb" /Gd /TP /errorReport:prompt CNsTransationParameter.cpp CNxAVCDecodeTask.cpp CNxCommonFileReaderNode.cpp SongProperty.cpp xCommonFileReaderNode.cpp
+         CNsTransationParameter.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(38): warning C4996: 'MBCS_Support_Deprecated_In_MFC': MBCS support in MFC is deprecated and may be removed in a future version of MFC.
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(33): note: 参见“MBCS_Support_Deprecated_In_MFC”的声明
+         CNxAVCDecodeTask.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(38): warning C4996: 'MBCS_Support_Deprecated_In_MFC': MBCS support in MFC is deprecated and may be removed in a future version of MFC.
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(33): note: 参见“MBCS_Support_Deprecated_In_MFC”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\CNsSignalQueue.h(2): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\CNsSignalQueue.h(3): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\CNsSignalQueue.h(4): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\CNsSignalQueue.h(85): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\xcommonfilereadernode\songproperty.h(66): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\xcommonfilereadernode\songproperty.h(78): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\3rdparty\ffmpeg-20170425-b4330a0-win64-dev\include\libavutil\rational.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+         CNxCommonFileReaderNode.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(38): warning C4996: 'MBCS_Support_Deprecated_In_MFC': MBCS support in MFC is deprecated and may be removed in a future version of MFC.
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(33): note: 参见“MBCS_Support_Deprecated_In_MFC”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\CNsSignalQueue.h(2): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\CNsSignalQueue.h(3): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\CNsSignalQueue.h(4): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>d:\quanwei\工程\xpgm_915\xpgm\inc\CNsSignalQueue.h(85): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\3rdparty\ffmpeg-20170425-b4330a0-win64-dev\include\libavutil\rational.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>CNxCommonFileReaderNode.cpp(114): warning C4800: “BOOL”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>CNxCommonFileReaderNode.cpp(744): warning C4244: “参数”: 从“uint64_t”转换到“unsigned long”，可能丢失数据
+     1>CNxCommonFileReaderNode.cpp(766): warning C4244: “初始化”: 从“uint64_t”转换到“unsigned long”，可能丢失数据
+     1>CNxCommonFileReaderNode.cpp(805): warning C4244: “参数”: 从“uint64_t”转换到“unsigned long”，可能丢失数据
+     1>CNxCommonFileReaderNode.cpp(591): warning C4101: “got_frame”: 未引用的局部变量
+     1>CNxCommonFileReaderNode.cpp(1313): warning C4267: “参数”: 从“size_t”转换到“unsigned long”，可能丢失数据
+     1>CNxCommonFileReaderNode.cpp(894): warning C4101: “video_dst_bufsize”: 未引用的局部变量
+     1>CNxCommonFileReaderNode.cpp(893): warning C4101: “video_dst_linesize”: 未引用的局部变量
+     1>CNxCommonFileReaderNode.cpp(904): warning C4101: “got_frame”: 未引用的局部变量
+     1>CNxCommonFileReaderNode.cpp(1462): warning C4101: “height”: 未引用的局部变量
+     1>CNxCommonFileReaderNode.cpp(1462): warning C4101: “width”: 未引用的局部变量
+     1>CNxCommonFileReaderNode.cpp(1475): warning C4101: “video_dst_bufsize”: 未引用的局部变量
+     1>CNxCommonFileReaderNode.cpp(1463): warning C4101: “pix_fmt”: 未引用的局部变量
+     1>CNxCommonFileReaderNode.cpp(1479): warning C4101: “pkt”: 未引用的局部变量
+     1>CNxCommonFileReaderNode.cpp(1474): warning C4101: “video_dst_linesize”: 未引用的局部变量
+     1>CNxCommonFileReaderNode.cpp(1485): warning C4101: “got_frame”: 未引用的局部变量
+     1>CNxCommonFileReaderNode.cpp(1464): warning C4101: “sample_fmt”: 未引用的局部变量
+         SongProperty.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(38): warning C4996: 'MBCS_Support_Deprecated_In_MFC': MBCS support in MFC is deprecated and may be removed in a future version of MFC.
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(33): note: 参见“MBCS_Support_Deprecated_In_MFC”的声明
+     1>d:\quanwei\工程\xpgm_915\xpgm\xcommonfilereadernode\SongProperty.h(66): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>d:\quanwei\工程\xpgm_915\xpgm\xcommonfilereadernode\SongProperty.h(78): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+         xCommonFileReaderNode.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(38): warning C4996: 'MBCS_Support_Deprecated_In_MFC': MBCS support in MFC is deprecated and may be removed in a future version of MFC.
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(33): note: 参见“MBCS_Support_Deprecated_In_MFC”的声明
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /I.\inc /I..\inc /I"..\3rdparty\ffmpeg-20170425-b4330a0-win64-dev\include" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D NDEBUG /D _WINDOWS /D _USRDLL /D XCOMMONFILEREADERNODE_EXPORTS /D _WINDLL /D _MBCS /D _AFXDLL /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release64\\" /Fd"Release64\vc140.pdb" /Gd /TP /errorReport:prompt dllmain.cpp
+         dllmain.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(38): warning C4996: 'MBCS_Support_Deprecated_In_MFC': MBCS support in MFC is deprecated and may be removed in a future version of MFC.
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\atlmfc\include\afx.h(33): note: 参见“MBCS_Support_Deprecated_In_MFC”的声明
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"Release64\xCommonFileReaderNode.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\Lib\Release64 /LIBPATH:"..\3rdparty\ffmpeg-20170425-b4330a0-win64-dev\lib" xAPI.lib xTree.lib xBaseCom.lib xTools.lib xUtility.lib xLogger.lib avcodec.lib avdevice.lib avfilter.lib avformat.lib avutil.lib postproc.lib swresample.lib swscale.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\Include\Manifest\dpiaware.manifest" /Debug /PDB:"Release64\xCommonFileReaderNode.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Release64\xCommonFileReaderNode.lib" /MACHINE:X64 /DLL Release64\CNsTransationParameter.obj
+         Release64\CNxAVCDecodeTask.obj
+         Release64\CNxCommonFileReaderNode.obj
+         Release64\dllmain.obj
+         Release64\SongProperty.obj
+         Release64\stdafx.obj
+         Release64\xCommonFileReaderNode.obj
+           正在创建库 Release64\xCommonFileReaderNode.lib 和对象 Release64\xCommonFileReaderNode.exp
+         正在生成代码
+         All 1102 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+         已完成代码的生成
+         xCommonFileReaderNode.vcxproj -> D:\quanwei\工程\xPGM_915\xPGM\xCommonFileReaderNode\Release64\xCommonFileReaderNode.dll
+       PostBuildEvent:
+         ..\BuildCustom\CustomBuildDLL.bat Release64
+         :VCEnd
+         .\Inc\CNsTransationParameter.h
+         .\Inc\CNxAVCDecodeTask.h
+         .\Inc\CNxCommonFileReaderNode.h
+         已复制         3 个文件。
+         .\Release64\xCommonFileReaderNode.dll
+         已复制         1 个文件。
+         .\Release64\vc140.pdb
+         .\Release64\xCommonFileReaderNode.pdb
+         已复制         2 个文件。
+         .\Release64\xCommonFileReaderNode.lib
+         已复制         1 个文件。
+     1>已完成生成项目“D:\quanwei\工程\xPGM_915\xPGM\xCommonFileReaderNode\xCommonFileReaderNode.vcxproj”(Rebuild 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:46.01
